@@ -223,7 +223,7 @@ export default function TripDetails() {
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-xl font-bold text-gray-900">Expenses</h2>
                 <div className="bg-red-50 text-red-700 px-4 py-2 rounded-lg font-bold">
-                  Total: ${totalExpenses.toFixed(2)}
+                  Total: ₹{totalExpenses.toFixed(2)}
                 </div>
               </div>
               {expenses.length === 0 ? (
@@ -234,7 +234,7 @@ export default function TripDetails() {
                     <div key={expense.id} className="flex items-center justify-between p-4 rounded-xl border border-gray-100 hover:border-red-100 bg-gray-50 hover:bg-red-50/50 transition-colors">
                       <p className="font-semibold text-gray-900">{expense.description}</p>
                       <div className="flex items-center gap-4">
-                        <p className="font-bold text-gray-900">${expense.amount}</p>
+                        <p className="font-bold text-gray-900">₹{expense.amount}</p>
                         <button onClick={() => handleDeleteItem("expenses", expense.id)} className="text-gray-400 hover:text-red-500 p-2">
                           <Trash2 className="h-4 w-4" />
                         </button>
@@ -312,7 +312,7 @@ export default function TripDetails() {
 
               {activeTab === "budget" && (
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Amount ($)</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Amount (₹)</label>
                   <input
                     type="number"
                     step="0.01"

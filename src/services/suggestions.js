@@ -1,9 +1,9 @@
-// Pre-defined destination suggestions for Smart Trip Generation
+// Pre-defined destination suggestions for Smart Trip Generation in INR (₹)
 export const destinationData = {
   paris: {
-    dailyBudget: 150,
-    flightCost: 600,
-    hotelRate: 180,
+    dailyBudget: 12000,
+    flightCost: 55000,
+    hotelRate: 15000,
     activities: [
       "Eiffel Tower Tour",
       "Louvre Museum",
@@ -14,9 +14,9 @@ export const destinationData = {
     ]
   },
   tokyo: {
-    dailyBudget: 120,
-    flightCost: 900,
-    hotelRate: 150,
+    dailyBudget: 10000,
+    flightCost: 45000,
+    hotelRate: 12000,
     activities: [
       "Senso-ji Temple Visit",
       "Shibuya Crossing & Hachiko",
@@ -27,9 +27,9 @@ export const destinationData = {
     ]
   },
   "new york": {
-    dailyBudget: 180,
-    flightCost: 400,
-    hotelRate: 250,
+    dailyBudget: 15000,
+    flightCost: 80000,
+    hotelRate: 20000,
     activities: [
       "Central Park Walk",
       "Statue of Liberty Tour",
@@ -40,9 +40,9 @@ export const destinationData = {
     ]
   },
   bali: {
-    dailyBudget: 50,
-    flightCost: 800,
-    hotelRate: 80,
+    dailyBudget: 4000,
+    flightCost: 35000,
+    hotelRate: 6000,
     activities: [
       "Ubud Monkey Forest",
       "Tegallalang Rice Terrace",
@@ -53,9 +53,9 @@ export const destinationData = {
     ]
   },
   london: {
-    dailyBudget: 160,
-    flightCost: 600,
-    hotelRate: 200,
+    dailyBudget: 13000,
+    flightCost: 60000,
+    hotelRate: 16000,
     activities: [
       "Tower of London",
       "British Museum",
@@ -66,9 +66,9 @@ export const destinationData = {
     ]
   },
   dubai: {
-    dailyBudget: 200,
-    flightCost: 700,
-    hotelRate: 220,
+    dailyBudget: 15000,
+    flightCost: 25000,
+    hotelRate: 18000,
     activities: [
       "Burj Khalifa View",
       "Dubai Mall Shopping",
@@ -81,9 +81,9 @@ export const destinationData = {
 };
 
 const genericFallback = {
-  dailyBudget: 100,
-  flightCost: 500,
-  hotelRate: 120,
+  dailyBudget: 8000,
+  flightCost: 40000,
+  hotelRate: 10000,
   activities: [
     "City Center Sightseeing",
     "Local Cuisine Tasting",
