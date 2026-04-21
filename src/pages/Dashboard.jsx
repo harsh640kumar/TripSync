@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Plus, MapPin, Calendar, Trash2 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { useTripStatus } from "../hooks/useTripStatus";
@@ -8,10 +8,11 @@ import { collection, query, where, getDocs, addDoc, deleteDoc, doc, serverTimest
 import toast from "react-hot-toast";
 
 export default function Dashboard() {
+  const location = useLocation();
   const [trips, setTrips] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [newDestination, setNewDestination] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(!!location.state?.destination);
+  const [newDestination, setNewDestination] = useState(location.state?.destination || "");
   const [newStartDate, setNewStartDate] = useState("");
   const [newEndDate, setNewEndDate] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -250,7 +251,12 @@ export default function Dashboard() {
                 <div className="flex gap-3 pt-4">
                   <button
                     type="button"
-                    onClick={() => setIsModalOpen(false)}
+                    onClick={() => {
+                      setIsModalOpen(false);
+                      if (location.state?.destination) {
+                        window.history.replaceState({}, document.title);
+                      }
+                    }}
                     className="flex-1 py-2 px-4 border border-gray-300 text-gray-700 rounded-xl hover:bg-gray-50 transition-colors font-medium"
                   >
                     Cancel

@@ -21,13 +21,24 @@ export default function Navbar() {
     <nav className="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
-          <div className="flex items-center">
+          <div className="flex items-center gap-6">
             <Link to="/" className="flex items-center gap-2 group">
               <div className="bg-primary-500 p-2 rounded-lg group-hover:bg-primary-600 transition-colors">
                 <PlaneTakeoff className="h-6 w-6 text-white" />
               </div>
               <span className="font-bold text-xl text-gray-900 tracking-tight">TripSync</span>
             </Link>
+            
+            {currentUser && (
+              <div className="hidden sm:flex items-center gap-4 border-l border-gray-200 pl-6 ml-2">
+                <Link to="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                  Dashboard
+                </Link>
+                <Link to="/explore" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                  Explore
+                </Link>
+              </div>
+            )}
           </div>
           
           <div className="flex items-center gap-4">

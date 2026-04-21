@@ -12,6 +12,7 @@ const Login = lazy(() => import("./pages/Login"));
 const Signup = lazy(() => import("./pages/Signup"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const TripDetails = lazy(() => import("./pages/TripDetails"));
+const Explore = lazy(() => import("./pages/Explore"));
 
 function LoadingFallback() {
   return (
@@ -49,6 +50,14 @@ function App() {
                   element={
                     <ProtectedRoute>
                       <TripDetails />
+                    </ProtectedRoute>
+                  } 
+                />
+                <Route 
+                  path="/explore" 
+                  element={
+                    <ProtectedRoute>
+                      <Explore />
                     </ProtectedRoute>
                   } 
                 />
