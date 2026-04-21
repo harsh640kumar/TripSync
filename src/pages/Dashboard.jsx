@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Plus, MapPin, Calendar, Trash2 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { useTripStatus } from "../hooks/useTripStatus";
+import { getTripSuggestions } from "../services/suggestions";
 import { activeDb } from "../services/firebase";
 import { collection, query, where, getDocs, addDoc, deleteDoc, doc, serverTimestamp } from "firebase/firestore";
 import toast from "react-hot-toast";
@@ -83,6 +84,39 @@ export default function Dashboard() {
 
       const docRef = await Promise.race([addDocPromise, timeoutPromise]);
       
+      // Auto-generate Smart Itinerary and Budget
+      try {
+        const start = new Date(newStartDate);
+        const end = new Date(newEndDate);
+        const diffTime = Math.abs(end - start);
+        const diffDays = Math.max(1, Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1);
+        
+        const { budget, itinerary } = getTripSuggestions(newDestination, diffDays);
+
+        // Add auto-generated budget items
+        for (const item of budget) {
+          await addDoc(collection(activeDb, "trips", docRef.id, "expenses"), {
+            description: `[AI Est] ${item.description}`,
+            amount: item.amount,
+            createdAt: serverTimestamp()
+          });
+        }
+
+        // Add auto-generated itinerary items
+        for (const item of itinerary) {
+          const actDate = new Date(start);
+          actDate.setDate(actDate.getDate() + item.dayOffset);
+          await addDoc(collection(activeDb, "trips", docRef.id, "itinerary"), {
+            date: actDate.toISOString().split('T')[0],
+            activity: `[AI Suggestion] ${item.activity}`,
+            createdAt: serverTimestamp()
+          });
+        }
+      } catch (err) {
+        console.error("Failed to generate smart suggestions", err);
+        // We don't block the UI if suggestions fail
+      }
+
       setTrips([{ id: docRef.id, ...newTrip }, ...trips]);
       setIsModalOpen(false);
       setNewDestination("");
