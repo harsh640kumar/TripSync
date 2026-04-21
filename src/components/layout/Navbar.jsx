@@ -26,7 +26,7 @@ export default function Navbar() {
               <div className="bg-primary-500 p-2 rounded-lg group-hover:bg-primary-600 transition-colors">
                 <PlaneTakeoff className="h-6 w-6 text-white" />
               </div>
-              <span className="font-bold text-xl text-gray-900 tracking-tight">SmartTravel</span>
+              <span className="font-bold text-xl text-gray-900 tracking-tight">TripSync</span>
             </Link>
           </div>
           

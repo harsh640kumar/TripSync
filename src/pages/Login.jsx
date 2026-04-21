@@ -50,7 +50,7 @@ export default function Login() {
           Welcome back
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
-          Sign in to access your smart travel planner
+          Sign in to access TripSync
         </p>
       </div>
 

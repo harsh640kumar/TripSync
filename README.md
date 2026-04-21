@@ -1,4 +1,4 @@
-# 🚀 Smart Travel Planner
+# 🚀 TripSync
 
 **End-Term Project Submission**  
 Course: *Building Web Applications with React*  
@@ -7,7 +7,7 @@ Batch: **2029**
 ---
 
 ## 🎯 Problem Statement
-Travel planning is often fragmented. Travelers use spreadsheets for budgets, notes apps for daily itineraries, and email folders for booking documents. **Smart Travel Planner** solves this genuine, real-world problem by providing a unified, centralized dashboard. 
+Travel planning is often fragmented. Travelers use spreadsheets for budgets, notes apps for daily itineraries, and email folders for booking documents. **TripSync** solves this genuine, real-world problem by providing a unified, centralized dashboard. 
 
 **Who is the user?** Frequent travelers, vacationers, and digital nomads.  
 **What problem are we solving?** Eliminating the chaos of scattered travel details.  
